@@ -75,7 +75,7 @@ def run(request):
                 "image_name": image_name,
                 "image_port": "3000"
             }
-            print("sahil")
+            
             try:
                 webhook_url = "http://localhost:8001/api/webhook/"
                 response = requests.post(webhook_url, json=payload)
