@@ -24,3 +24,5 @@ smmap==5.0.1
 sqlparse==0.5.2
 typing_extensions==4.12.2
 urllib3==2.2.3
+django-environ
+psycopg2-binary

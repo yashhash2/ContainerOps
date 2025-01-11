@@ -1,5 +1,5 @@
 """
-WSGI config for buildServer project.
+WSGI config for pages project.
 
 It exposes the WSGI callable as a module-level variable named ``application``.
 

@@ -1,0 +1,26 @@
+{% extends 'layout.html'%}
+
+{% block title%}
+  Hello
+{%endblock%}
+
+{% block navbar %}
+<a href="{%url 'api:signup'%}" >
+
+  <button type="submit">Signup</button> | 
+</a> 
+
+<a href="{%url 'api:login'%}" >
+
+  <button type="submit">Login</button> | 
+</a> 
+
+<a href="{%url 'api:deploy'%}" >
+
+  <button type="submit">Deploy</button> | 
+</a> 
+{%endblock%}
+
+{%block content%}
+  Hello
+{% endblock %}
