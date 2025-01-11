@@ -32,7 +32,7 @@ class RepoData(models.Model):
     def __str__(self):
         return self.username
     
-class Deployment(models.Model):
+class Deployments(models.Model):
     class StatusChoices(models.TextChoices):
         READY = "ready"
         BUILDING = "building"

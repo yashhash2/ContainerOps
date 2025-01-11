@@ -1,0 +1,24 @@
+{% extends 'layout.html'%}
+{% load static %}
+
+{% block title%}
+  Deploy
+{%endblock%}
+
+
+
+{%block content%}
+  
+    <div style="margin-bottom: 10px; text-align:center">Login</div>
+    <form method="POST" class="auth_forms" action="{%url 'api:login'%}">
+        {% csrf_token %}
+        <label >
+            Enter Github URL 
+            <input type="url" />
+
+        </label>
+
+        <button class="form_submit_btn" type="submit">Deploy</button>
+    </form> 
+
+{% endblock %}
