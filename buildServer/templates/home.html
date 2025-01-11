@@ -5,20 +5,37 @@
 {%endblock%}
 
 {% block navbar %}
-<a href="{%url 'api:signup'%}" >
 
-  <button type="submit">Signup</button> | 
-</a> 
+  {% comment %} Have the logout button only when you have logged in {% endcomment %}
+  {%if user.is_authenticated%}
 
-<a href="{%url 'api:login'%}" >
+  {% comment %} <a href="{%url 'api:deploy'%}" >
 
-  <button type="submit">Login</button> | 
-</a> 
+    <button type="submit">Deploy</button> | 
+  </a>  {% endcomment %}
 
-<a href="{%url 'api:deploy'%}" >
+  <a href="{%url 'api:logout'%}" >
 
-  <button type="submit">Deploy</button> | 
-</a> 
+    <button type="submit">Logout</button> | 
+  </a> 
+
+
+
+  {%else%}
+  
+      
+  <a href="{%url 'api:signup'%}" >
+
+    <button type="submit">Signup</button> | 
+  </a> 
+
+  <a href="{%url 'api:login'%}" >
+
+    <button type="submit">Login</button> | 
+  </a> 
+
+  {%endif%}
+
 {%endblock%}
 
 {%block content%}
