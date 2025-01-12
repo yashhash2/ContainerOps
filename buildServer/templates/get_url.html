@@ -9,8 +9,8 @@
 
 {%block content%}
   
-    <div style="margin-bottom: 10px; text-align:center">Login</div>
-    <form method="POST" class="auth_forms" action="{%url 'api:login'%}">
+    <div style="margin-bottom: 10px; text-align:center">Github URL</div>
+    <form method="POST" class="auth_forms" action="{%url 'api:deploy'%}">
         {% csrf_token %}
         <label >
             Enter Github URL 

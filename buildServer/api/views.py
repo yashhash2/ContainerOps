@@ -166,4 +166,4 @@ def run(request):
 
 @login_required
 def get_url(request):
-    return render(request, 'deploy.html')
+    return render(request, 'get_url.html')
