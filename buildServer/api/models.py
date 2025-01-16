@@ -21,8 +21,11 @@ class User(AbstractBaseUser):
 
     USERNAME_FIELD = 'username'
 
+    class Meta:
+        ordering = ['username']
+
     def __str__(self):
-        return self.email
+        return self.username
 
 
 class RepoData(models.Model):
@@ -39,12 +42,10 @@ class Deployments(models.Model):
         FAILED = "failed"
         DEPLOYED = "deployed"
      
-    username=models.CharField(max_length=200, blank=False)
     git_repo = models.ForeignKey(RepoData, on_delete=models.CASCADE)
     branch= models.CharField(max_length=100, default='main')
     deployed_domain = models.URLField(blank=True, null=False)
-    gitURL= models.URLField(null=True)
-
+   
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
@@ -54,9 +55,21 @@ class Deployments(models.Model):
         default=StatusChoices.BUILDING
     )
 
-    user = models.ForeignKey(User, to_field='uid',on_delete=models.CASCADE)
+    user = models.ForeignKey(User, to_field='username',on_delete=models.CASCADE)
+    
     def __str__(self):
-        return self.username
+        deployment_details=[
+            f"Deployment by {self.user.username} | "
+            f"Repo: {self.git_repo} | "
+            f"Branch: {self.branch} | "
+            f"Status: {self.status} | "   
+        ]
+
+        if(self.status=="deployed"):
+            deployment_details.append(f"Domain: {self.deployed_domain} |")
+
+        return deployment_details
+
 
 
 

@@ -12,6 +12,9 @@ class SignupForm(forms.ModelForm):
             'username': 'Create Username',
             'password': 'Create Password',
         }
+        widgets = {
+            "password": forms.PasswordInput,
+        }
 
     def clean_confirm_password(self):
         cleaned_data = super().clean()
@@ -21,7 +24,10 @@ class SignupForm(forms.ModelForm):
         if password != confirm_password:
             raise forms.ValidationError("Passwords do not match.")
 
-        return cleaned_data
+        if not password or not confirm_password:
+            raise forms.ValidationError("Both password and confirm password fields are required.")
+        
+        return confirm_password
     
 
     def save(self, commit=True):

@@ -9,7 +9,7 @@
   {% comment %} Have the logout button only when you have logged in {% endcomment %}
   {%if user.is_authenticated%}
 
-  <a href="{%url 'api:get_url'%}" >
+  <a href="{%url 'api:fetch_giturl'%}" >
 
     <button type="submit">Deploy</button> | 
   </a>  

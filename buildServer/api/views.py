@@ -1,27 +1,15 @@
-from django.shortcuts import render, redirect
-from django.http import JsonResponse
-from django.views.decorators.csrf import csrf_exempt
-from django.contrib.auth.decorators import login_required
-from django.shortcuts import render, redirect
-from django.contrib.auth import login, logout
-from django.contrib.auth.forms import AuthenticationForm
-
-import logging
-
-# Configure logging
-logging.basicConfig(level=logging.INFO, format="%(asctime)s - %(levelname)s - %(message)s")
-logger = logging.getLogger(__name__)
-
-
-
-from .forms import SignupForm
-
 import requests
 import json
 import docker
 import os
-
-from .models import User, Deployments
+from django.shortcuts import render, redirect
+from django.http import JsonResponse
+from django.contrib.auth.decorators import login_required
+from django.shortcuts import render, redirect
+from django.contrib.auth import login, logout
+from django.contrib.auth.forms import AuthenticationForm
+from .forms import SignupForm
+from .models import User
 
 
 def login_user(request):
@@ -42,7 +30,7 @@ def login_user(request):
     return render(request, 'login.html', {'form': form})
 
 
-def createUser(request):
+def create_user(request):
     if request.method == 'POST':
         form = SignupForm(request.POST)
         if form.is_valid():
@@ -88,7 +76,6 @@ def run(request):
 
             # Validate required parameters
             if not all([github_url, docker_user, docker_pass, image_name, username, user_uid]):
-                logger.error("Missing required parameters.")
                 return JsonResponse({"status": "error", "message": "Missing required parameters."})
             
             try:
@@ -154,5 +141,5 @@ def run(request):
 
 
 @login_required
-def get_url(request):
-    return render(request, 'get_url.html')
+def fetch_giturl(request):
+    return render(request, 'fetch_giturl.html')
