@@ -9,29 +9,28 @@
   {% comment %} Have the logout button only when you have logged in {% endcomment %}
   {%if user.is_authenticated%}
 
-  <a href="{%url 'api:fetch_giturl'%}" >
+  <a href="{%url 'api:fetch_giturl'%}" class="no-underline">
 
-    <button type="submit">Deploy</button> | 
+    <button type="submit" class="no-underline text-2xl text-[black] rounded-[5px] border-0">Deploy</button> | 
   </a>  
 
-  <a href="{%url 'api:logout'%}" >
+  <a href="{%url 'api:logout'%}" class="no-underline">
 
-    <button type="submit">Logout</button> | 
+    <button type="submit" class="no-underline text-2xl text-[black] rounded-[5px] border-0">Logout</button> | 
   </a> 
-
 
 
   {%else%}
   
       
-  <a href="{%url 'api:signup'%}" >
+  <a href="{%url 'api:signup'%}" class="no-underline">
 
-    <button type="submit">Signup</button> | 
+    <button type="submit" class="no-underline text-2xl text-[black] rounded-[5px] border-0">Signup</button> | 
   </a> 
 
-  <a href="{%url 'api:login'%}" >
+  <a href="{%url 'api:login'%}" class="no-underline" >
 
-    <button type="submit">Login</button> | 
+    <button type="submit" class="no-underline text-2xl text-[black] rounded-[5px] border-0">Login</button> | 
   </a> 
 
   {%endif%}
@@ -43,8 +42,7 @@
 
     Hii {{user.username}}!
 
-
   {%else%}
-      Hello
+    Hello
   {%endif%}
 {% endblock %}

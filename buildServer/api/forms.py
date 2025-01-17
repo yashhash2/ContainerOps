@@ -21,12 +21,12 @@ class SignupForm(forms.ModelForm):
         password = cleaned_data.get('password')
         confirm_password = cleaned_data.get('confirm_password')
 
-        if password != confirm_password:
-            raise forms.ValidationError("Passwords do not match.")
-
         if not password or not confirm_password:
             raise forms.ValidationError("Both password and confirm password fields are required.")
         
+        if password != confirm_password:
+            raise forms.ValidationError("Passwords do not match.")
+
         return confirm_password
     
 

@@ -37,7 +37,7 @@ def create_user(request):
             form.save()
             
             # redirect to login page
-            request.session['signup_success'] = True
+            # request.session['signup_success'] = True
             return redirect('api:login')
 
     

@@ -9,16 +9,16 @@
 
 {%block content%}
   
-    <div style="margin-bottom: 10px; text-align:center">Github URL</div>
-    <form method="POST" class="auth_forms" action="{%url 'api:deploy'%}">
+    <div class="mb-2.5 text-center">Github URL</div>
+    <form method="POST" class="flex flex-col justify-center content-center text-xl gap-5 max-w-[400px] mx-auto my-0 px-[50px] py-5 rounded-[10px] border-solid border-2 border-[white]" action="{%url 'api:deploy'%}">
         {% csrf_token %}
         <label >
             Enter Github URL 
-            <input type="url" name="githubUrl" required/>
+            <input type="url" class="text-md"name="githubUrl" required/>
 
         </label>
 
-        <button class="form_submit_btn" type="submit">Deploy</button>
+        <button class="no-underline text-2xl px-2.5 py-[5px] rounded-[5px] bg-slate-100 text-black" type="submit">Deploy</button>
     </form> 
 
 {% endblock %}

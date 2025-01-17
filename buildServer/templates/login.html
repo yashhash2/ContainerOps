@@ -9,12 +9,12 @@
 
 {%block content%}
   
-    <div style="margin-bottom: 10px; text-align:center">Login</div>
-    <form method="POST" class="auth_forms" action="{%url 'api:login'%}">
+    <div class="mb-2.5 text-center">Login</div>
+    <form method="POST" class="flex flex-col justify-center content-center text-xl gap-5 max-w-[400px] mx-auto my-0 px-[50px] py-5 rounded-[10px] border-solid border-2 border-[white]" action="{%url 'api:login'%}">
         {% csrf_token %}
         {{form.as_p}}
 
-        <button class="form_submit_btn" type="submit">Login</button>
+        <button class="no-underline text-2xl px-2.5 py-[5px] rounded-[5px] bg-slate-100 text-black" type="submit">Login</button>
     </form> 
 
 {% endblock %}
