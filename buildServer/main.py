@@ -7,7 +7,7 @@ cmd=f'["{cmd_list[0]}", "{cmd_list[1]}"]'
 print(f"Command: {cmd}")
 
 env_content=os.getenv('ENV_CONTENT')
-print(f"Env Content: {env_content}")
+
 
 print("Running python script to generate Dockerfile")
 def write_env_file(repo_path, env_content):
@@ -150,7 +150,7 @@ def from_path_to_file_list(directory):
     return files
 
 
-def auto_generate_dockerfile(repo_path, include_env=False):
+def auto_generate_dockerfile(repo_path, include_env=True):
     print(f"Generating Dockerfile for {repo_path}")
     files = from_path_to_file_list(repo_path)
     print(f"Files detected: {files}")
@@ -172,10 +172,26 @@ repo_name = git_url.split('/')[-1].replace('.git', '')
 repo_path = f'./{repo_name}'
 
 include_env = True  # Set to True if you want to include .env file
+print(repo_path)
 write_env_file(repo_path,env_content )
+print("ENV is completed.........")
 
 #generate Dockerfile if not present;
 if not os.path.exists(os.path.join(repo_path, 'Dockerfile')):
     auto_generate_dockerfile(repo_path, include_env)
 else:
     print("Dockerfile already exists. Skipping generation...")
+
+
+#print .env content  here
+def print_file_content(file_path):
+    try:
+        with open(file_path, 'r') as file:
+            content = file.read()
+            print(f"Content of {file_path}:\n{content}")
+    except FileNotFoundError:
+        print(f"Error: The file at {file_path} was not found.")
+    except IOError:
+        print(f"Error: An issue occurred while reading the file at {file_path}.")
+
+print_file_content('./test-cops/.env')
