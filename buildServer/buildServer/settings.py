@@ -86,11 +86,11 @@ WSGI_APPLICATION = 'buildServer.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'container_ops',
+        'NAME': 'defaultdb',
         'USER': env('DB_USERNAME'),
         'PASSWORD': env('DB_PASSWORD'),
-        'HOST': 'localhost',
-        'PORT': '5432',
+        'HOST': 'pg-10217911-yashksingh790-b1b9.b.aivencloud.com',
+        'PORT': '16449',
     }
 }
 

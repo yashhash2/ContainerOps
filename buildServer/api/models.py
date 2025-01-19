@@ -45,7 +45,6 @@ class Deployments(models.Model):
     git_repo = models.ForeignKey(RepoData, on_delete=models.CASCADE)
     branch= models.CharField(max_length=100, default='main')
     deployed_domain = models.URLField(blank=True, null=False)
-   
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 

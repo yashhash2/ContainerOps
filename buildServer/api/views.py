@@ -10,6 +10,8 @@ from django.contrib.auth import login, logout
 from django.contrib.auth.forms import AuthenticationForm
 from .forms import SignupForm
 from .models import User
+from django.views.decorators.csrf import csrf_exempt
+
 
 
 def login_user(request):
@@ -53,6 +55,7 @@ def logout_user(request):
     logout(request)
     return redirect('/')
 
+@csrf_exempt
 def run(request):
     if request.method == "POST":
         try:
@@ -60,12 +63,14 @@ def run(request):
                 body = json.loads(request.body)
                 github_url = body.get("githubUrl")
                 user_uid = body.get("user_id")
+                work=body.get("work")#work=deploy/redeploy
                
-            else:
-                github_url = request.POST.get("githubUrl")
-                user = request.user
-                username = user.username
-                user_uid = user.uid
+            # else:
+            #     github_url = request.POST.get("githubUrl")
+            #     work=request.POST.get("work")
+            #     user = request.user
+            #     username = user.username
+            #     user_uid = user.uid
              
             
             docker_user = os.getenv("DOCKER_USERNAME")
@@ -73,17 +78,19 @@ def run(request):
             image_name = os.getenv("IMAGE_NAME")
             cmd = os.getenv("CMD")
             env_content = os.getenv("ENV_CONTENT", "")
-
+            github_url="https://github.com/Sahiiil1406/test-cops"
+            print(github_url,docker_pass,docker_user,cmd,env_content)
+            
             # Validate required parameters
-            if not all([github_url, docker_user, docker_pass, image_name, username, user_uid]):
+            if not all([github_url, docker_user, docker_pass, image_name]):
                 return JsonResponse({"status": "error", "message": "Missing required parameters."})
             
-            try:
-                user = User.objects.get(uid=user_uid)
-            except User.DoesNotExist:
-                return JsonResponse({'error': 'User not found'}, status=404)
+            # try:
+            #     user = User.objects.get(uid=user_uid)
+            # except User.DoesNotExist:
+            #     return JsonResponse({'error': 'User not found'}, status=404)
             
-
+            print("sahiiiil")
             # Clone repository, build, and push image
             client = docker.from_env()
   
@@ -96,6 +103,8 @@ def run(request):
                     "DOCKER_USERNAME": docker_user,
                     "DOCKER_PASSWORD": docker_pass,
                     "IMAGE_NAME": image_name,
+                    "CMD":cmd,
+                    "ENV_CONTENT":env_content
                 },
                 volumes={"/var/run/docker.sock": {"bind": "/var/run/docker.sock", "mode": "rw"}},
                 privileged=True,
@@ -114,7 +123,8 @@ def run(request):
             payload = {
                 "id": container.id,
                 "image_name": image_name,
-                "image_port": "3000"
+                "image_port": "3000",
+                "work":work,
             }
             
             try:
@@ -128,6 +138,7 @@ def run(request):
                 "status": "success",
                 "message": "Container executed successfully.",
                 "containerId": container.id,
+                "logs":logs_output
             })
 
         except Exception as e:
