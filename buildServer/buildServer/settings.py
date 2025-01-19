@@ -89,8 +89,8 @@ DATABASES = {
         'NAME': 'defaultdb',
         'USER': env('DB_USERNAME'),
         'PASSWORD': env('DB_PASSWORD'),
-        'HOST': 'pg-10217911-yashksingh790-b1b9.b.aivencloud.com',
-        'PORT': '16449',
+        'HOST': env('HOST'),
+        'PORT': env('DB_PORT'),
     }
 }
 

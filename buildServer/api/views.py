@@ -90,7 +90,7 @@ def run(request):
             # except User.DoesNotExist:
             #     return JsonResponse({'error': 'User not found'}, status=404)
             
-            print("sahiiiil")
+            
             # Clone repository, build, and push image
             client = docker.from_env()
   
