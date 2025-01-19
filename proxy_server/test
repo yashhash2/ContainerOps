@@ -4,8 +4,7 @@ events {
 
 http {
    map $subdomain $upstream {
-    907817e5e4e123ffbfd11011bfb3e440266813dae09f32b20128b470ebe14b52   http://172.25.96.1:4000;
-    409decfd64994d8f1ef9a74baebc43eb7f85f262d2c6c4c31d405b9e203e157d   http://172.25.96.1:4001;
+    eac14b8e41b7713c02b7a5300704c6800dd34c08a3312842724dd2c99c5038d6   http://172.25.96.1:4000;
     default "";
 }
 
