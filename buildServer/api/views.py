@@ -77,9 +77,10 @@ def run(request):
             docker_pass = os.getenv("DOCKER_PASSWORD")
             image_name = os.getenv("IMAGE_NAME")
             cmd = os.getenv("CMD")
-            env_content = os.getenv("ENV_CONTENT", "")
+            #env_content = os.getenv("ENV_CONTENT", "")
+            env_content="PORT=3000"
             github_url="https://github.com/Sahiiil1406/test-cops"
-            print(github_url,docker_pass,docker_user,cmd,env_content)
+            print(image_name)
             
             # Validate required parameters
             if not all([github_url, docker_user, docker_pass, image_name]):
