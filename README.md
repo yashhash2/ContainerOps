@@ -314,7 +314,7 @@ For production deployment, use Docker Compose:
 
 4. Access the application at `http://your-domain.com`
 
-## 🚀 Usage Guide
+## Usage Guide
 
 ### Authentication
 
@@ -375,7 +375,7 @@ containerops/
 ├── tests/                   # Test suite
 └── docker-compose.yml       # Docker Compose configuration
 ```
-## 🔮 Future Enhancements
+## Future Enhancements
 
 - **Multi-Provider Support**: Extend beyond GitHub to support GitLab, Bitbucket, and Azure DevOps
 - **Advanced Scaling**: Horizontal and vertical scaling capabilities for containerized applications
