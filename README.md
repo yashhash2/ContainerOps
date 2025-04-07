@@ -1,4 +1,4 @@
-# ContainerOps 🚀
+# ContainerOps
 
 [![Django](https://img.shields.io/badge/Django-3.2-green.svg)](https://www.djangoproject.com/)
 [![Docker](https://img.shields.io/badge/Docker-20.10-blue.svg)](https://www.docker.com/)
@@ -6,7 +6,7 @@
 [![GitHub](https://img.shields.io/badge/GitHub-Integration-purple.svg)](https://github.com)
 [![PostgreSQL](https://img.shields.io/badge/PostgreSQL-12+-orange.svg)](https://www.postgresql.org/)
 
-## 📋 Table of Contents
+## Table of Contents
 - [Overview](#-overview)
 - [Features](#-features)
 - [Technology Stack](#%EF%B8%8F-technology-stack)
@@ -27,11 +27,11 @@
 - [Team](#-team)
 - [License](#-license)
 
-## 🌐 Overview
+## Overview
 
 ContainerOps is a comprehensive Continuous Deployment (CD) platform that simplifies Docker-based application deployment through automated Dockerfile generation, GitHub integration, and real-time monitoring capabilities. The platform is designed to empower developers by providing a seamless user experience for deploying applications using Docker orchestration, enabling teams to focus on development while ensuring smooth and secure deployment across various environments.
 
-## 🌟 Features
+## Features
 
 - **Automated Dockerfile Generation**
   - Intelligent project structure analysis to detect project type
@@ -71,7 +71,7 @@ ContainerOps is a comprehensive Continuous Deployment (CD) platform that simplif
   - Version tagging and management
 
 
-## 🛠️ Technology Stack
+## 🛠Technology Stack
 
 ### Backend
 - **Framework**: Django 3.2 (Python)
@@ -90,7 +90,7 @@ ContainerOps is a comprehensive Continuous Deployment (CD) platform that simplif
 - **CI/CD**: Webhook-based automated pipeline
 
 
-## 🏗️ System Architecture
+## System Architecture
 
 ![Screenshot 2025-04-07 100714](https://github.com/user-attachments/assets/3eeec84a-eeb5-4f85-832d-9cd80b0d9021)
 
@@ -123,7 +123,7 @@ ContainerOps follows a microservices architecture with the following key compone
    - Tracks container status and history
    - Maintains system settings and environment variables
 
-## 🔄 Workflow
+## Workflow
 
 1. **Authentication & Repository Selection**
    - User authenticates through GitHub or Google OAuth
@@ -163,7 +163,7 @@ ContainerOps follows a microservices architecture with the following key compone
    - Complete container lifecycle management (scale, restart, stop)
    - Custom domain and routing configuration
 
-## 🗄️ Database Schema
+## Database Schema
 ![WhatsApp Image 2025-04-06 at 11 29 43_a1f55b00](https://github.com/user-attachments/assets/b94c5404-b714-4ae3-81b3-ed87468c6365)
 
 The ContainerOps database schema includes the following core tables:
@@ -195,7 +195,7 @@ The ContainerOps database schema includes the following core tables:
    - Routing rules and load balancing configuration
    - DNS verification status and history
 
-## 📥 Installation
+## Installation
 
 ### Prerequisites
 
@@ -389,7 +389,7 @@ containerops/
 - **Cost Optimization**: Resource allocation and cost tracking features
 
   
-## 👥 Team
+## Team
 
 ### Mentors
 - Apoorva Agrawal
@@ -403,7 +403,7 @@ containerops/
 - Yash Kumar Singh
 
 
-## 📝 License
+## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
