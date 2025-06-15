@@ -84,12 +84,11 @@ ContainerOps is a comprehensive Continuous Deployment (CD) platform that simplif
 
 ### Infrastructure
 - **Containerization**: Docker, Docker Compose
-- **Authentication**: OAuth 2.0 (GitHub, Google)
+- **Authentication**: Github OAuth 2.0
 - **Database**: PostgreSQL 12+
 - **Web Server**: Nginx for reverse proxy and domain mapping
 - **CI/CD**: Webhook-based automated pipeline
-
-
+  
 ## System Architecture
 
 ![Screenshot 2025-04-07 100714](https://github.com/user-attachments/assets/3eeec84a-eeb5-4f85-832d-9cd80b0d9021)
@@ -126,7 +125,7 @@ ContainerOps follows a microservices architecture with the following key compone
 ## Workflow
 
 1. **Authentication & Repository Selection**
-   - User authenticates through GitHub or Google OAuth
+   - User authenticates through GitHub OAuth
    - System requests appropriate permissions for repository access
    - User selects target repositories for deployment
    - System validates repository access and structure
@@ -141,7 +140,6 @@ ContainerOps follows a microservices architecture with the following key compone
    - System auto-generates optimized Dockerfiles based on project type
    - User can review and customize generated Dockerfiles
    - System uses existing Dockerfile if present in repository
-   - Support for multi-stage builds and optimized caching
 
 4. **Build & Registry**
    - System clones repository and builds Docker image
@@ -153,13 +151,10 @@ ContainerOps follows a microservices architecture with the following key compone
    - GitHub webhooks trigger automatic deployment on code changes
    - System pulls updated images from registry
    - Container orchestration manages deployment updates
-   - Zero-downtime deployments with health checks
-   - Automatic rollback for failed deployments
 
 6. **Monitoring & Management**
    - Interactive dashboard for container status monitoring
    - Live build and application log streaming
-   - Resource utilization metrics and alerts
    - Complete container lifecycle management (scale, restart, stop)
    - Custom domain and routing configuration
 
