@@ -14,3 +14,6 @@ from django.core.wsgi import get_wsgi_application
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'buildServer.settings')
 
 application = get_wsgi_application()
+
+# Vercel needs this specific variable name to start the server
+app = application
